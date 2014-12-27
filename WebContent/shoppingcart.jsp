@@ -33,8 +33,10 @@
      	 %>
      	 </table>
      	 <br>
-     	 <input  type="button" id="back" onclick="oncheck()" value="Back">
-     	 <input  type="button" id="check"  value="Checkout">
+     	 <form action="/SimpleWebStore/StoreController/payment" method="get">
+     	 <input  type="button" id="back" value="Back">
+     	 <input  type="submit" value="Checkout">
+     	 </form>
      	 
  
 		 

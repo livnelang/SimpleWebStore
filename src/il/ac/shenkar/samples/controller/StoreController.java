@@ -1,6 +1,7 @@
 package il.ac.shenkar.samples.controller;
 
 
+import il.ac.shenkar.samples.model.ProductException;
 import il.ac.shenkar.samples.model.MySQLProductsDAO;
 import il.ac.shenkar.samples.model.Product;
 import il.ac.shenkar.samples.model.ProductException;
@@ -81,6 +82,28 @@ public class StoreController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}
+		
+		
+		/**
+		 * Go to payment page
+		 */
+		if(path.endsWith("payment"))
+		{	
+			double total_price = cart.getTotal();
+			request.setAttribute("total_price", total_price);
+			
+			try
+			{
+				dispatcher = getServletContext().getRequestDispatcher("/payment.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+			catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 		
 		
